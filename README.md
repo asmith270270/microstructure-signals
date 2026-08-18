@@ -134,7 +134,7 @@ feature flags, see **docs/USAGE.md**.
 - **docs/signals/**: formulas, parameters, worked examples, and empirical
   properties for every signal above
 - **docs/USAGE.md**: API usage, configuration, and deployment modes
-- **[docs/BENCHMARKS.md](docs/BENCHMARKS.md)**: measured throughput and latency
+- **docs/BENCHMARKS.md**: measured throughput and latency
 
 ## License
 
