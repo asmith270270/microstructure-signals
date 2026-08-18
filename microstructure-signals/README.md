@@ -135,7 +135,3 @@ feature flags, see **[docs/USAGE.md](docs/USAGE.md)**.
   properties for every signal above
 - **[docs/USAGE.md](docs/USAGE.md)**: API usage, configuration, and deployment modes
 - **[docs/BENCHMARKS.md](docs/BENCHMARKS.md)**: measured throughput and latency
-
-## License
-
-MIT OR Apache-2.0

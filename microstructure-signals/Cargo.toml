@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.84"
 description = "Streaming microstructure signal engine for order flow toxicity and adverse selection risk"
-license = "MIT OR Apache-2.0"
 keywords = ["market-microstructure", "order-flow", "toxicity", "adverse-selection", "trading"]
 categories = ["finance", "algorithms", "science"]
 
