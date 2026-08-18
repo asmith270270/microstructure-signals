@@ -1,0 +1,21 @@
+# Build artifacts
+/target
+/fuzz/target
+/fuzz/corpus
+/fuzz/artifacts
+
+# This is a library crate — the lockfile is intentionally not tracked so
+# downstream consumers resolve their own dependency versions.
+Cargo.lock
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

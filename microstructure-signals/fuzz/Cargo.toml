@@ -1,0 +1,33 @@
+[package]
+name = "microstructure-signals-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.microstructure-signals]
+path = ".."
+features = ["std", "ofi", "depth-imbalance", "microprice", "vsi", "normaliser", "composite", "adverse-selection", "trade-classifier", "effective-spread", "regime-normaliser"]
+
+[[bin]]
+name = "fuzz_engine_book"
+path = "fuzz_targets/fuzz_engine_book.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_engine_trade"
+path = "fuzz_targets/fuzz_engine_trade.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_normaliser"
+path = "fuzz_targets/fuzz_normaliser.rs"
+test = false
+doc = false

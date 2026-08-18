@@ -1,0 +1,60 @@
+[package]
+name = "microstructure-signals"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.84"
+description = "Streaming microstructure signal engine for order flow toxicity and adverse selection risk"
+license = "MIT OR Apache-2.0"
+keywords = ["market-microstructure", "order-flow", "toxicity", "adverse-selection", "trading"]
+categories = ["finance", "algorithms", "science"]
+
+[features]
+default = ["std", "ofi", "depth-imbalance", "microprice", "vsi", "normaliser", "composite", "adverse-selection", "trade-classifier", "effective-spread", "regime-normaliser"]
+
+std = ["alloc"]
+alloc = []
+serde = ["dep:serde"]
+
+ofi = []
+depth-imbalance = []
+microprice = []
+vsi = ["trade-classifier"]
+
+normaliser = []
+trade-classifier = []
+
+composite = ["normaliser"]
+adverse-selection = ["normaliser"]
+effective-spread = ["trade-classifier"]
+regime-normaliser = ["normaliser"]
+
+all-signals = ["ofi", "depth-imbalance", "microprice", "vsi", "composite", "adverse-selection", "effective-spread", "regime-normaliser"]
+minimal = ["ofi", "depth-imbalance"]
+
+[dependencies]
+serde = { version = "1", default-features = false, features = ["derive", "alloc"], optional = true }
+libm = { version = "0.2", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+debug = false
+
+[profile.release-embedded]
+inherits = "release"
+panic = "abort"
+strip = true
+
+[dev-dependencies]
+approx = "0.5"
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1"
+
+[[bench]]
+name = "signals"
+harness = false
+
+[[bench]]
+name = "throughput"
+harness = false
